@@ -1,5 +1,5 @@
 locals {
-  repos = ["terraform-github"]
+  repos = ["terraform-github1"]
 }
 
 module "repos" {
