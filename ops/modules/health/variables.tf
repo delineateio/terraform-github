@@ -1,4 +1,5 @@
 variable "context" {
+  description = "Core context to create the environment"
   type = object({
     owner    = string
     name     = string
@@ -7,6 +8,7 @@ variable "context" {
 }
 
 variable "health" {
+  description = "The info to create the health checks"
   type = object({
     health_type = string
     health_dashboard = object({

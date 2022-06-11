@@ -1,6 +1,7 @@
+
 locals {
   github_visibility = "public"
-  github_pattern    = "main"
+  default_branch    = "main"
   github_teams = {
     for team in var.repo.teams :
     team.name => team
@@ -25,6 +26,11 @@ resource "github_repository" "this" {
   }
 }
 
+data "github_branch" "this" {
+  repository = github_repository.this.name
+  branch     = local.default_branch
+}
+
 data "github_team" "this" {
   slug = var.repo.settings["collaborator"]
 }
@@ -38,7 +44,7 @@ resource "github_team_repository" "this" {
 resource "github_branch_protection" "this" {
 
   repository_id           = github_repository.this.node_id
-  pattern                 = local.github_pattern
+  pattern                 = local.default_branch
   enforce_admins          = true
   require_signed_commits  = true
   required_linear_history = true

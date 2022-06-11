@@ -12,3 +12,8 @@ output "branches" {
   value       = github_repository.this.branches
   description = "List of the branches for the repo."
 }
+
+output "sha" {
+  value       = data.github_branch.this.sha
+  description = "The HEAD sha for the repo"
+}

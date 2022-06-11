@@ -17,6 +17,7 @@ module "web" {
 
   context = var.context
   web     = var.web
+  sha     = module.repo.sha
 
   depends_on = [module.repo]
 }

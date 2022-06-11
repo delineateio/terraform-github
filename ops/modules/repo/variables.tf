@@ -1,4 +1,5 @@
 variable "context" {
+  description = "Core context to create the environment"
   type = object({
     owner    = string
     name     = string
@@ -7,7 +8,7 @@ variable "context" {
 }
 
 variable "repo" {
-  description = "Repo details to create."
+  description = "The info to create the source code repo"
   type = object({
     description = string
     template = object({
