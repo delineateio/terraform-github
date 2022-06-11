@@ -11,8 +11,7 @@ env:
 
 includes:
   os: ./os/taskfile.{{OS}}.yaml
-  cloud: ./ops/taskfile.cloud.yaml
-  local: ./ops/taskfile.local.yaml
+  github: ./ops/taskfile.cloud.yaml
 
 tasks:
   init:

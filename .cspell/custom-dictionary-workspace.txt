@@ -1,0 +1,12 @@
+# Custom Dictionary Words
+autoupdate
+brewfile
+chdir
+cmds
+deps
+doctoc
+pyenv
+taskfile
+tfenv
+venv
+virtualenv

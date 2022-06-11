@@ -4,16 +4,16 @@ tasks:
   init:
     desc: initialise terraform
     cmds:
-      - terraform -chdir=ops/cloud/{{ .LAYER}} init
+      - terraform -chdir=ops init
 
   plan:
     desc: run terraform plan
     deps: ["init"]
     cmds:
-      - terraform -chdir=ops/cloud/{{ .LAYER}} plan
+      - terraform -chdir=ops plan
 
   apply:
     desc: run terraform apply and auto applies
     deps: ["init"]
     cmds:
-      - terraform -chdir=ops/cloud/{{ .LAYER}} apply -auto-approve
+      - terraform -chdir=ops apply -auto-approve

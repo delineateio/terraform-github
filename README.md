@@ -13,19 +13,17 @@
   <h2 align="center">delineate.io</h2>
   <p align="center">portray or describe (something) precisely.</p>
 
-  <h3 align="center">[PROJECT_TITLE]</h3>
+  <h3 align="center">Terraform GitHub</h3>
 
   <p align="center">
-    [PROJECT_DESCRIPTION]
+    IaC management of GitHub projects
     <br />
-    <a href="https://github.com/delineateio/oss-template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/delineateio/terraform-github"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/delineateio/oss-template">View Demo</a>
+    <a href="https://github.com/delineateio/terraform-github/issues">Report Bug</a>
     ·
-    <a href="https://github.com/delineateio/oss-template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/delineateio/oss-template/issues">Request Feature</a>
+    <a href="https://github.com/delineateio/terraform-github/issues">Request Feature</a>
   </p>
 </p>
 
@@ -40,9 +38,7 @@
   - [Local Dependencies](#local-dependencies)
   - [Local Setup](#local-setup)
 - [Usage](#usage)
-- [Infrastructure](#infrastructure)
-  - [Local Services](#local-services)
-  - [Cloud Infrastructure](#cloud-infrastructure)
+- [GitHub Provisioning](#github-provisioning)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
 - [License](#license)
@@ -53,11 +49,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://delineate.io)
-The repo description should be added here and describe at least:
+This repo is used to consistently manage all projects within a GitHub organisation and provide automated centralised management.
 
-* Purpose of the repo e.g. problem/opportunity statement
-* High level description of the overall approach/solution
+* The GitHub repo [terraform-github](https://github.com/delineateio/terraform-github) is used to store the code
+* The Terraform Cloud workspace [terraform-github](https://app.terraform.io/app/delineateio/workspaces/terraform-github) is used to manage provisioning
+
+Terraform Cloud is setup to apply the changes on commit to the `main` branch.
 
 ## Built With
 
@@ -67,11 +64,7 @@ Further logos can be inserted to highlight the specific technologies used to cre
 | --- | ----------- |
 | ![pre-commit](https://img.shields.io/badge/precommit-%235835CC.svg?style=for-the-badge&logo=precommit&logoColor=white) | Pre-commit `git` hooks that perform checks before pushes|
 | ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) | Source control management platform  |
-| ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) | Containerise applications and provide local environment |
-| ![CircleCI](https://img.shields.io/badge/CIRCLECI-%23161616.svg?style=for-the-badge&logo=circleci&logoColor=white) | CI/CD pipeline and services |
 | ![Terraform](https://img.shields.io/badge/terraform-%235835CC.svg?style=for-the-badge&logo=terraform&logoColor=white) | Cloud infrastructure provisioning configuration|
-| ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white) | Security and DNS services for internet services|
-| ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white) | Hosting of services on Google Cloud |
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -97,36 +90,22 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 _For more examples, please refer to the [Documentation](https://example.com)._
 
-## Infrastructure
-
-### Local Services
-
-A boilerplate `docker-compose` file is provided that can be used to manage local environment services.  The stack can be found at `ops/local/stack.yaml`.
-
-```shell
-# stands up the local services
-task local:up
-
-# tears down the local services
-task local:down
-```
-
-### Cloud Infrastructure
+## GitHub Provisioning
 
 A boilerplate configuration is provided for using `terraform` configuration to provision cloud infrastructure.  [tfenv](https://github.com/tfutils/tfenv) is used to select the version of `terraform` to use.  The repo template provides a single component in `ops/cloud/component`.
 
 ```shell
 # plans the network terraform config
-task cloud:plan LAYER=component
+task github:plan
 
 # auto approves applying the network terraform config
-task cloud:apply LAYER=component
+task github:apply
 ```
 
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/delineateio/oss-template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/delineateio/terraform-github/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -159,17 +138,17 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[circleci-url]: https://img.shields.io/circleci/build/gh/delineateio/oss-template?style=for-the-badge&logo=circleci
+[circleci-url]: https://img.shields.io/circleci/build/gh/delineateio/terraform-github?style=for-the-badge&logo=circleci
 [pr-welcome-shield]: https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=for-the-badge&logo=github
-[pr-welcome-url]: https://github.com/delineateio/oss-template/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue
-[contributors-shield]: https://img.shields.io/github/contributors/delineateio/oss-template.svg?style=for-the-badge&logo=github
-[contributors-url]: https://github.com/delineateio/oss-template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/delineateio/oss-template.svg?style=for-the-badge&logo=github
-[forks-url]: https://github.com/delineateio/oss-template/network/members
-[stars-shield]: https://img.shields.io/github/stars/delineateio/oss-template.svg?style=for-the-badge&logo=github
-[stars-url]: https://github.com/delineateio/oss-template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/delineateio/oss-template.svg?style=for-the-badge&logo=github
-[issues-url]: https://github.com/delineateio/oss-template/issues
-[license-shield]: https://img.shields.io/github/license/delineateio/oss-template.svg?style=for-the-badge&logo=github
-[license-url]: https://github.com/delineateio/oss-template/blob/master/LICENSE
+[pr-welcome-url]: https://github.com/delineateio/terraform-github/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue
+[contributors-shield]: https://img.shields.io/github/contributors/delineateio/terraform-github.svg?style=for-the-badge&logo=github
+[contributors-url]: https://github.com/delineateio/terraform-github/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/delineateio/terraform-github.svg?style=for-the-badge&logo=github
+[forks-url]: https://github.com/delineateio/terraform-github/network/members
+[stars-shield]: https://img.shields.io/github/stars/delineateio/terraform-github.svg?style=for-the-badge&logo=github
+[stars-url]: https://github.com/delineateio/terraform-github/stargazers
+[issues-shield]: https://img.shields.io/github/issues/delineateio/terraform-github.svg?style=for-the-badge&logo=github
+[issues-url]: https://github.com/delineateio/terraform-github/issues
+[license-shield]: https://img.shields.io/github/license/delineateio/terraform-github.svg?style=for-the-badge&logo=github
+[license-url]: https://github.com/delineateio/terraform-github/blob/master/LICENSE
 [product-screenshot]: https://github.com/delineateio/.github/blob/master/assets/screenshot.png?raw=true
