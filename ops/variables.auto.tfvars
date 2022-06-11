@@ -25,7 +25,7 @@ repo = {
   ]
 }
 
-web {
+web = {
   web_type = "vercel"
   web_info = {
     framework = "svelte"
@@ -34,7 +34,7 @@ web {
   }
 }
 
-health {
+health = {
   health_type = "checkly"
   health_dashboard = {
     logo_url = "https://github.com/delineateio/.github/blob/master/assets/logo.png?raw=true"
