@@ -10,9 +10,15 @@ terraform {
   }
 
   required_providers {
+    github = {
+      source  = "integrations/github"
+      version = "4.26.1"
+    }
     random = {
       source  = "hashicorp/random"
       version = ">= 3.1.0, < 4.0.0"
     }
   }
 }
+
+provider "github" {}
