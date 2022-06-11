@@ -1,7 +1,9 @@
+
 .vscode/
 .terraform/
 
 *.env
 *.todo
+.dccache
 terraform.tfstate
 .DS_Store

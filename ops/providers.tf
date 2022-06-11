@@ -5,7 +5,7 @@ terraform {
     organization = "delineateio"
 
     workspaces {
-      name = "terraform-github"
+      name = "environments"
     }
   }
 
