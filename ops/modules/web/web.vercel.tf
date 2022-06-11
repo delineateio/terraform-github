@@ -32,5 +32,6 @@ resource "vercel_project_domain" "this" {
 resource "vercel_deployment" "this" {
   count      = local.is_vercel ? 1 : 0
   project_id = vercel_project.this[0].id
+  team_id    = var.web.web_info["team_id"]
   ref        = var.sha
 }
