@@ -6,6 +6,12 @@ tasks:
     cmds:
       - terraform -chdir=ops init
 
+  validate:
+    desc: run terraform validate
+    deps: ["init"]
+    cmds:
+      - terraform -chdir=ops validate
+
   plan:
     desc: run terraform plan
     deps: ["init"]

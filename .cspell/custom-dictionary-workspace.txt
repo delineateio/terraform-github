@@ -2,12 +2,16 @@
 autoupdate
 brewfile
 chdir
+checkly
 cmds
 deps
 doctoc
+healthcheck
 pyenv
 taskfile
+templatefile
 tfenv
 toset
 venv
+vercel
 virtualenv

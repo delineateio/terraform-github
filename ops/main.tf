@@ -1,11 +1,41 @@
-# locals {
-#   repos = ["terraform-github1"]
-# }
+module "dns" {
+  source = "./modules/dns"
 
-# module "repos" {
-#   for_each = toset(local.repos)
-#   source   = "./modules/repo"
+  type    = "cloudflare"
+  context = var.context
+}
 
-#   name        = each.key
-#   description = ""
+module "repo" {
+  source = "./modules/repo"
+
+  context = var.context
+  repo    = var.repo
+}
+
+module "web" {
+  source = "./modules/web"
+
+  context = var.context
+  web     = var.web
+
+  depends_on = [module.repo]
+}
+
+module "health" {
+  source = "./modules/health"
+
+  context = var.context
+  health  = var.health
+
+  depends_on = [module.web]
+}
+
+# module "health_cloudflare" {
+#   source = "./modules/health"
+
+#   context   = var.context
+#   type      = "cloudflare"
+#   checks    = var.checks
+
+#   depends_on = [module.web]
 # }

@@ -11,7 +11,7 @@ env:
 
 includes:
   os: ./os/taskfile.{{OS}}.yaml
-  github: ./ops/taskfile.cloud.yaml
+  terraform: ./ops/taskfile.terraform.yaml
 
 tasks:
   init:
